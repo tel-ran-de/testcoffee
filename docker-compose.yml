@@ -1,0 +1,15 @@
+version: "3"
+services:
+  coffee:
+    image: nginx:stable
+    ports:
+      - "7777:80"
+    networks:
+      - internal
+    volumes:
+      - .:/usr/share/nginx/html/
+      - ./logs/nginx:/var/log/nginx/
+
+networks:
+  internal:
+    driver: bridge
